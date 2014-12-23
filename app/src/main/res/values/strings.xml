@@ -5,4 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+
+    <color name="shadow">#ffffc128</color>
+    <color name="menu_bg">#ff4fff27</color>
+
 </resources>
