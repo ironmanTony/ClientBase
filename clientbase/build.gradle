@@ -5,20 +5,40 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true // Caution!
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+repositories {
+    maven {
+        url 'http://dl.bintray.com/amulyakhare/maven'
+    }
+}
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
+//    androidTestCompile files('libs/mockito-core-2.0.7-beta.jar')
+//    androidTestCompile files('libs/junit-4.12.jar')
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+
 }
