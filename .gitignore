@@ -33,3 +33,5 @@ gradle/
 */gradle/
 *.gradle/
 app/app.iml
+gradlew.bat
+gradlew
