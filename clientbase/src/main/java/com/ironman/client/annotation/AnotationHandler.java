@@ -1,5 +1,7 @@
 package com.ironman.client.annotation;
 
+import com.ironman.client.params.Param;
+
 /**
  * 获取方法上的注解
  * public static void main(String[] args) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
@@ -29,17 +31,25 @@ package com.ironman.client.annotation;
 public class AnotationHandler {
 
 
-    public void handleRequestAnnotation(Class[] classes){
+    public Param handleRequestAnnotation(Class[] classes){
         if(classes != null&&classes.length>0){
             Class clazz ;
             for(int index = 0;index<classes.length;index++){
                 clazz = classes[index];
                 if(clazz.isAnnotationPresent(Request.class)){
-                    //TODO 生成对象，并且对他做处理处理成request，使用volley。
+                    //TODO 生成对象，并且对他做处理，处理成request，使用volley。
+
+
 
                 }
             }
         }
+        return null;
 
+    }
+
+    //TODO 通过Dager生成对象
+    public <T> T getObject(Class<T> c){
+        return null;
     }
 }
