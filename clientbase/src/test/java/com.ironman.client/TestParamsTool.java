@@ -4,6 +4,9 @@ import com.ironman.client.tools.ParamsTools;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by Administrator on 2015/5/18.
@@ -17,7 +20,14 @@ public class TestParamsTool {
         object.xxx = 3;
         object.setFuck("fff");
         object.setY(0.222f);
-        System.out.print(ParamsTools.toUrl(object));
+        System.out.println(ParamsTools.toUrl(object));
+    }
 
+    @Test
+    public void test_params_map(){
+        Map<String, String> map = new HashMap<>();
+        map.put("fff", "23");
+        map.put("89", "zhongguo");
+        System.out.println(ParamsTools.mapToUrl(map));
     }
 }

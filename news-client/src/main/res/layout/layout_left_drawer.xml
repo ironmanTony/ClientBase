@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ib="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    >
+
+
+    <com.qunar.ironman.view.widget.ImageButton
+        android:id="@+id/left_drawer_news"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        ib:text="@string/left_drawer_news"
+        ib:src="@drawable/biz_navigation_tab_news"/>
+
+    <com.qunar.ironman.view.widget.ImageButton
+        android:id="@+id/left_drawer_book"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/left_drawer_news"
+        ib:text="@string/left_drawer_book"
+        ib:src="@drawable/biz_navigation_tab_read"/>
+
+    <com.qunar.ironman.view.widget.ImageButton
+        android:id="@+id/left_drawer_image"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/left_drawer_book"
+        ib:text="@string/left_drawer_image"
+        ib:src="@drawable/biz_navigation_tab_pics"/>
+
+    <com.qunar.ironman.view.widget.ImageButton
+        android:id="@+id/left_drawer_video"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/left_drawer_image"
+        ib:text="@string/left_drawer_video"
+        ib:src="@drawable/biz_navigation_tab_video"/>
+
+    <com.qunar.ironman.view.widget.ImageButton
+        android:id="@+id/left_drawer_addblog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/left_drawer_video"
+        ib:text="@string/left_drawer_addblog"
+        ib:src="@drawable/biz_navigation_tab_ties"/>
+
+
+
+</RelativeLayout>

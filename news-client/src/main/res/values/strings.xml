@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">NewsClient</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="left_drawer_news">新闻</string>
+    <string name="left_drawer_book">订阅</string>
+    <string name="left_drawer_image">图片</string>
+    <string name="left_drawer_video">视频</string>
+    <string name="left_drawer_addblog">跟帖</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="menu_profile">profile</string>
+    <string name="menu_more">more</string>
+
+    <string-array name="tips">
+        <item >头条</item>
+        <item >娱乐</item>
+        <item >热点</item>
+        <item >体育</item>
+        <item >北京</item>
+        <item >财经</item>
+        <item >科技</item>
+        <item >段子</item>
+        <item >图片</item>
+        <item >汽车</item>
+        <item >时尚</item>
+        <item >轻松一刻</item>
+        <item >军事</item>
+        <item >历史</item>
+        <item >房产</item>
+        <item >游戏</item>
+        <item >彩票</item>
+        <item >原创</item>
+        <item >电台</item>
+        <item >政务</item>
+    </string-array>
+
+    <string name="profile_login">立即登录</string>
+    <string name="profile_present">赢积分 抢大礼</string>
+    <string name="profile_read">阅读</string>
+    <string name="profile_store">收藏</string>
+    <string name="profile_gentie">跟贴</string>
+    <string name="profile_club">俱乐部</string>
+    <string name="profile_activity">活动</string>
+    <string name="profile_app">应用</string>
+    <string name="profile_game">游戏</string>
+    <string name="profile_to_toutiao">上头条</string>
+    <string name="profile_message">消息</string>
+    <string name="profile_mail">邮件</string>
+    <string name="profile_gongyi">公益</string>
+    <string name="profile_caipiao">彩票</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

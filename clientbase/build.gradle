@@ -33,8 +33,10 @@ dependencies {
     //    androidTestCompile files('libs/junit-4.12.jar')
     //    compile 'com.squareup.dagger:dagger:1.2.2'
     //    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
+//    compile 'com.mcxiaoke.volley:library:1.0.15'
     compile files('lib/dexmaker-1.0.jar')
     compile files('lib/junit-4.12.jar')
     compile files('lib/dexmaker-mockito-1.2.jar')
     compile files('lib/mockito-all-1.10.19.jar')
+    compile project(':volley')
 }

@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/biz_pc_main_info_profile_avatar_bg_dark"
+        android:orderInCategory="0"
+        android:title="@string/menu_profile"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@drawable/ic_menu_moreoverflow"
+        android:orderInCategory="1"
+        android:title="@string/menu_more"
+        app:showAsAction="always" />
+
+</menu>
