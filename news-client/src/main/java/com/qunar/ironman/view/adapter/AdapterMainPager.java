@@ -158,26 +158,26 @@ public class AdapterMainPager extends BaseAdapter {
     }
 
 
-    private static class ViewImages {
+    public static class ViewImages {
         public static NetworkImageView image;
         public static TextView title;
     }
 
-    private static class ViewImageLfet {
+    public static class ViewImageLfet {
         public static TextView textTitle;
         public static TextView textContent;
         public static TextView textComments;
         public static NetworkImageView image;
     }
 
-    private static class ViewImageLong {
+    public static class ViewImageLong {
         public static TextView textTitle;
         public static TextView textContent;
         //        public static TextView textComments;
         public static NetworkImageView image;
     }
 
-    private static class ViewImageThree {
+    public static class ViewImageThree {
         public static TextView textTitle;
         public static TextView textContent;
         public static TextView textComments;

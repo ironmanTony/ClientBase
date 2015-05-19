@@ -34,6 +34,7 @@ dependencies {
     //    compile 'com.squareup.dagger:dagger:1.2.2'
     //    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
 //    compile 'com.mcxiaoke.volley:library:1.0.15'
+    compile 'in.srain.cube:ultra-ptr:1.0.9'
     compile files('lib/dexmaker-1.0.jar')
     compile files('lib/junit-4.12.jar')
     compile files('lib/dexmaker-mockito-1.2.jar')
