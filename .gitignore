@@ -36,4 +36,4 @@ app/app.iml
 gradlew.bat
 gradlew
 volley/build/
-news-client/news-client.iml
+*.pro

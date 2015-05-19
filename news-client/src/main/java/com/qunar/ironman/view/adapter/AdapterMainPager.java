@@ -1,6 +1,7 @@
 package com.qunar.ironman.view.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import java.util.List;
  * Created by ironmanli on 15-4-16.
  */
 public class AdapterMainPager extends BaseAdapter {
+
+    public static final String TAG = AdapterMainPager.class.getName();
 
     private List<News> data;
     private LayoutInflater inflater;
@@ -76,6 +79,7 @@ public class AdapterMainPager extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
+        final News news = data.get(position);
         if (getItemViewType(position) == TYPE_IMAGES) {
             ViewImages views;
             if (convertView == null) {
@@ -88,8 +92,8 @@ public class AdapterMainPager extends BaseAdapter {
                 views = (ViewImages) convertView.getTag();
             }
 
-            views.image.setImageUrl(data.get(position).getImgSrc(), loader);
-            views.title.setText(data.get(position).getTitle());
+            views.image.setImageUrl(news.getImgSrc(), loader);
+            views.title.setText(news.getTitle());
 
         } else if (getItemViewType(position) == TYPE_IMAGE_LONG) {
             ViewImageLong imageLong;
@@ -103,9 +107,9 @@ public class AdapterMainPager extends BaseAdapter {
             } else {
                 imageLong = (ViewImageLong) convertView.getTag();
             }
-            imageLong.textTitle.setText(data.get(position).getTitle());
-            imageLong.textContent.setText(data.get(position).getDigest());
-            imageLong.image.setImageUrl(data.get(position).getImgSrc(), AppController.getInstance().getImageLoader());
+            imageLong.textTitle.setText(news.getTitle());
+            imageLong.textContent.setText(news.getDigest());
+            imageLong.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
 
         } else if (getItemViewType(position) == TYPE_IMAGE_LEFT) {
             ViewImageLfet imageLeft;
@@ -120,11 +124,12 @@ public class AdapterMainPager extends BaseAdapter {
             } else {
                 imageLeft = (ViewImageLfet) convertView.getTag();
             }
-            imageLeft.textTitle.setText(data.get(position).getTitle());
-            imageLeft.textContent.setText(data.get(position).getDigest());
-            imageLeft.textComments.setText("跟帖" + data.get(position).getReplyCount());
-            imageLeft.image.setImageUrl(data.get(position).getImgSrc(), AppController.getInstance().getImageLoader());
+            imageLeft.textTitle.setText(news.getTitle());
+            imageLeft.textContent.setText(news.getDigest());
+            imageLeft.textComments.setText("跟帖" + news.getReplyCount());
+            imageLeft.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
 
+            Log.e(TAG, "position :"+position +"\n"+news.getTitle());
         } else if (getItemViewType(position) == TYPE_IMAGE_THREE) {
             ViewImageThree imageThree;
             if (convertView == null) {
@@ -140,12 +145,11 @@ public class AdapterMainPager extends BaseAdapter {
             } else {
                 imageThree = (ViewImageThree) convertView.getTag();
             }
-            imageThree.textTitle.setText(data.get(position).getTitle());
-            imageThree.textContent.setText(data.get(position).getDigest());
-            imageThree.textComments.setText("跟帖" + data.get(position).getReplyCount());
-            imageThree.image1.setImageUrl(data.get(position).getImgSrc(), AppController.getInstance().getImageLoader());
-            List<ImageSrc> imgExtra = data.get(position).getImgextra();
-            String str = imgExtra.get(0).getImgsrc();
+            imageThree.textTitle.setText(news.getTitle());
+            imageThree.textContent.setText(news.getDigest());
+            imageThree.textComments.setText("跟帖" + news.getReplyCount());
+            imageThree.image1.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
+            List<ImageSrc> imgExtra = news.getImgextra();
             imageThree.image2.setImageUrl(imgExtra.get(0).getImgsrc(), AppController.getInstance().getImageLoader());
             imageThree.image3.setImageUrl(imgExtra.get(1).getImgsrc(), AppController.getInstance().getImageLoader());
         }
