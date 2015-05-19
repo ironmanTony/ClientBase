@@ -27,14 +27,14 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.0.0'
-//    androidTestCompile files('libs/mockito-core-2.0.7-beta.jar')
-//    androidTestCompile files('libs/junit-4.12.jar')
-    compile 'com.squareup.dagger:dagger:1.2.2'
-    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.10.19'
-
-
+    //    androidTestCompile files('libs/mockito-core-2.0.7-beta.jar')
+    //    androidTestCompile files('libs/junit-4.12.jar')
+    //    compile 'com.squareup.dagger:dagger:1.2.2'
+    //    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
+    compile files('lib/dexmaker-1.0.jar')
+    compile files('lib/junit-4.12.jar')
+    compile files('lib/dexmaker-mockito-1.2.jar')
+    compile files('lib/mockito-all-1.10.19.jar')
 }

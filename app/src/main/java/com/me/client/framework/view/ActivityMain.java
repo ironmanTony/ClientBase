@@ -17,6 +17,7 @@ public class ActivityMain extends ActionBarActivity {
 
     private void initView(){
         //test if ssh is ok
+
     }
 
 
