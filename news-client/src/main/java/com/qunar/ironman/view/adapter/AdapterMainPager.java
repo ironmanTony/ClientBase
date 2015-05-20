@@ -81,77 +81,77 @@ public class AdapterMainPager extends BaseAdapter {
 
         final News news = data.get(position);
         if (getItemViewType(position) == TYPE_IMAGES) {
-            ViewImages views;
+            ViewImages holderHeader;
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.layout_list_item_images, parent, false);
-                views = new ViewImages();
-                views.image = (NetworkImageView) convertView.findViewById(R.id.list_item_images_pager);
-                views.title = (TextView) convertView.findViewById(R.id.list_item_images_title);
-                convertView.setTag(views);
+                holderHeader = new ViewImages();
+                holderHeader.image = (NetworkImageView) convertView.findViewById(R.id.list_item_images_pager);
+                holderHeader.title = (TextView) convertView.findViewById(R.id.list_item_images_title);
+                convertView.setTag(holderHeader);
             } else {
-                views = (ViewImages) convertView.getTag();
+                holderHeader = (ViewImages) convertView.getTag();
             }
 
-            views.image.setImageUrl(news.getImgSrc(), loader);
-            views.title.setText(news.getTitle());
+            holderHeader.image.setImageUrl(news.getImgSrc(), loader);
+            holderHeader.title.setText(news.getTitle());
 
         } else if (getItemViewType(position) == TYPE_IMAGE_LONG) {
-            ViewImageLong imageLong;
+            ViewImageLong holderLong;
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.layout_list_item_image_long, parent, false);
-                imageLong = new ViewImageLong();
-                imageLong.textTitle = (TextView) convertView.findViewById(R.id.list_item_long_title);
-                imageLong.textContent = (TextView) convertView.findViewById(R.id.list_item_long_content);
-                imageLong.image = (NetworkImageView) convertView.findViewById(R.id.list_item_long_image);
-                convertView.setTag(imageLong);
+                holderLong = new ViewImageLong();
+                holderLong.textTitle = (TextView) convertView.findViewById(R.id.list_item_long_title);
+                holderLong.textContent = (TextView) convertView.findViewById(R.id.list_item_long_content);
+                holderLong.image = (NetworkImageView) convertView.findViewById(R.id.list_item_long_image);
+                convertView.setTag(holderLong);
             } else {
-                imageLong = (ViewImageLong) convertView.getTag();
+                holderLong = (ViewImageLong) convertView.getTag();
             }
-            imageLong.textTitle.setText(news.getTitle());
-            imageLong.textContent.setText(news.getDigest());
-            imageLong.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
+            holderLong.textTitle.setText(news.getTitle());
+            holderLong.textContent.setText(news.getDigest());
+            holderLong.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
 
         } else if (getItemViewType(position) == TYPE_IMAGE_LEFT) {
-            ViewImageLfet imageLeft;
+            ViewImageLeft holderLeft;
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.layout_list_item_image_left, parent, false);
-                imageLeft = new ViewImageLfet();
-                imageLeft.textTitle = (TextView) convertView.findViewById(R.id.list_item_left_title);
-                imageLeft.textContent = (TextView) convertView.findViewById(R.id.list_item_left_content);
-                imageLeft.textComments = (TextView) convertView.findViewById(R.id.list_item_left_comments);
-                imageLeft.image = (NetworkImageView) convertView.findViewById(R.id.list_item_left_image);
-                convertView.setTag(imageLeft);
+                holderLeft = new ViewImageLeft();
+                holderLeft.textTitle = (TextView) convertView.findViewById(R.id.list_item_left_title);
+                holderLeft.textContent = (TextView) convertView.findViewById(R.id.list_item_left_content);
+                holderLeft.textComments = (TextView) convertView.findViewById(R.id.list_item_left_comments);
+                holderLeft.image = (NetworkImageView) convertView.findViewById(R.id.list_item_left_image);
+                convertView.setTag(holderLeft);
             } else {
-                imageLeft = (ViewImageLfet) convertView.getTag();
+                holderLeft = (ViewImageLeft) convertView.getTag();
             }
-            imageLeft.textTitle.setText(news.getTitle());
-            imageLeft.textContent.setText(news.getDigest());
-            imageLeft.textComments.setText("跟帖" + news.getReplyCount());
-            imageLeft.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
+            holderLeft.textTitle.setText(news.getTitle());
+            holderLeft.textContent.setText(news.getDigest());
+            holderLeft.textComments.setText("跟帖" + news.getReplyCount());
+            holderLeft.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
 
             Log.e(TAG, "position :"+position +"\n"+news.getTitle());
         } else if (getItemViewType(position) == TYPE_IMAGE_THREE) {
-            ViewImageThree imageThree;
+            ViewImageThree holderThree;
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.layout_list_item_image_three, parent, false);
-                imageThree = new ViewImageThree();
-                imageThree.textTitle = (TextView) convertView.findViewById(R.id.list_item_three_title);
-                imageThree.textContent = (TextView) convertView.findViewById(R.id.list_item_three_comments);
-                imageThree.textComments = (TextView) convertView.findViewById(R.id.list_item_three_comments);
-                imageThree.image1 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image1);
-                imageThree.image2 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image2);
-                imageThree.image3 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image3);
-                convertView.setTag(imageThree);
+                holderThree = new ViewImageThree();
+                holderThree.textTitle = (TextView) convertView.findViewById(R.id.list_item_three_title);
+                holderThree.textContent = (TextView) convertView.findViewById(R.id.list_item_three_comments);
+                holderThree.textComments = (TextView) convertView.findViewById(R.id.list_item_three_comments);
+                holderThree.image1 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image1);
+                holderThree.image2 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image2);
+                holderThree.image3 = (NetworkImageView) convertView.findViewById(R.id.list_item_three_image3);
+                convertView.setTag(holderThree);
             } else {
-                imageThree = (ViewImageThree) convertView.getTag();
+                holderThree = (ViewImageThree) convertView.getTag();
             }
-            imageThree.textTitle.setText(news.getTitle());
-            imageThree.textContent.setText(news.getDigest());
-            imageThree.textComments.setText("跟帖" + news.getReplyCount());
-            imageThree.image1.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
+            holderThree.textTitle.setText(news.getTitle());
+            holderThree.textContent.setText(news.getDigest());
+            holderThree.textComments.setText("跟帖" + news.getReplyCount());
+            holderThree.image1.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
             List<ImageSrc> imgExtra = news.getImgextra();
-            imageThree.image2.setImageUrl(imgExtra.get(0).getImgsrc(), AppController.getInstance().getImageLoader());
-            imageThree.image3.setImageUrl(imgExtra.get(1).getImgsrc(), AppController.getInstance().getImageLoader());
+            holderThree.image2.setImageUrl(imgExtra.get(0).getImgsrc(), AppController.getInstance().getImageLoader());
+            holderThree.image3.setImageUrl(imgExtra.get(1).getImgsrc(), AppController.getInstance().getImageLoader());
         }
 
         return convertView;
@@ -159,31 +159,30 @@ public class AdapterMainPager extends BaseAdapter {
 
 
     public static class ViewImages {
-        public static NetworkImageView image;
-        public static TextView title;
+        public  NetworkImageView image;
+        public  TextView title;
     }
 
-    public static class ViewImageLfet {
-        public static TextView textTitle;
-        public static TextView textContent;
-        public static TextView textComments;
-        public static NetworkImageView image;
+    public static class ViewImageLeft {
+        public  TextView textTitle;
+        public  TextView textContent;
+        public  TextView textComments;
+        public  NetworkImageView image;
     }
 
     public static class ViewImageLong {
-        public static TextView textTitle;
-        public static TextView textContent;
-        //        public static TextView textComments;
-        public static NetworkImageView image;
+        public  TextView textTitle;
+        public  TextView textContent;
+        public  NetworkImageView image;
     }
 
     public static class ViewImageThree {
-        public static TextView textTitle;
-        public static TextView textContent;
-        public static TextView textComments;
-        public static NetworkImageView image1;
-        public static NetworkImageView image2;
-        public static NetworkImageView image3;
+        public  TextView textTitle;
+        public  TextView textContent;
+        public  TextView textComments;
+        public  NetworkImageView image1;
+        public  NetworkImageView image2;
+        public  NetworkImageView image3;
     }
 
 
