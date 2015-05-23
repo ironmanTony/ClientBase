@@ -35,6 +35,11 @@ dependencies {
     //    compile 'com.squareup.dagger:dagger-compiler:1.2.2'
 //    compile 'com.mcxiaoke.volley:library:1.0.15'
     compile 'in.srain.cube:ultra-ptr:1.0.9'
+    compile ('de.greenrobot:eventbus:2.0.1'){
+        exclude group: 'com.google.android', module: 'support-v4'
+        exclude group: 'com.google.android', module: 'annotations'
+        exclude group: 'com.google.android', module: 'android-test'
+    }
     compile files('lib/dexmaker-1.0.jar')
     compile files('lib/junit-4.12.jar')
     compile files('lib/dexmaker-mockito-1.2.jar')

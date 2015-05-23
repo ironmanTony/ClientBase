@@ -1,5 +1,6 @@
 package com.qunar.ironman.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.qunar.ironman.AppController;
 import com.qunar.ironman.R;
 import com.qunar.ironman.bean.News;
+import com.qunar.ironman.event.EventGoDetail;
 import com.qunar.ironman.view.adapter.AdapterMainPager;
 
 import org.json.JSONException;
@@ -66,7 +68,7 @@ public class FragmentPager extends Fragment {
         dropDownListView.setOnDropDownListener(new DropDownListView.OnDropDownListener() {
             @Override
             public void onDropDown() {
-                AppController.getInstance().addToRequestQueue(getJsonObjectRequest(getUrl(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE)));
+                AppController.getInstance().addToRequestQueue(getJsonObjectRequest(getUrl(true)));
             }
         });
         dropDownListView.setOnBottomListener(new View.OnClickListener() {
@@ -75,7 +77,7 @@ public class FragmentPager extends Fragment {
                 if(!isBottomRunning){
                     isBottomRunning = true;
                     currentPage ++;
-                    AppController.getInstance().addToRequestQueue(getJsonObjectBottomRequest(getUrl(currentPage * PAGE_SIZE, (currentPage + 1) * PAGE_SIZE)));
+                    AppController.getInstance().addToRequestQueue(getJsonObjectBottomRequest(getUrl(false)));
                 }
             }
         });
@@ -157,5 +159,22 @@ public class FragmentPager extends Fragment {
                 .append(end)
                 .append(".html").toString();
     }
+
+    private String getUrl(boolean isPull) {
+        if(isPull){
+            currentPage = 0;
+        }else{
+            currentPage ++ ;
+        }
+        int start = currentPage*PAGE_SIZE;
+        int end = PAGE_SIZE + start - 1;
+        return new StringBuilder("http://c.3g.163.com/nc/article/headline/T1348647909107/")
+                .append(start)
+                .append("-")
+                .append(end)
+                .append(".html").toString();
+    }
+
+
 
 }

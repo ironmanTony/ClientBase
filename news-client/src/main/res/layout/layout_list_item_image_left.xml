@@ -8,11 +8,14 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
+        android:padding="@dimen/padding_small"
         android:layout_weight="1"/>
 
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small"
         android:layout_weight="2">
 
         <TextView

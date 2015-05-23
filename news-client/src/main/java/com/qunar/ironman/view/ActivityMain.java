@@ -1,6 +1,7 @@
 package com.qunar.ironman.view;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -14,10 +15,13 @@ import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
 import com.qunar.ironman.R;
 import com.qunar.ironman.bean.RightDrawerListItem;
+import com.qunar.ironman.event.EventGoDetail;
 import com.qunar.ironman.view.adapter.AdapterRightDrawerList;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 
 public class ActivityMain extends FragmentActivity {
@@ -30,6 +34,7 @@ public class ActivityMain extends FragmentActivity {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_main);
+        EventBus.getDefault().register(this);
 
         initView();
         initActionBar();
@@ -116,4 +121,17 @@ public class ActivityMain extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onEventMainThread(EventGoDetail eventGoDetail){
+        if(eventGoDetail != null&& !"".equals(eventGoDetail)){
+            Intent intent = new Intent(ActivityMain.this, DetailActivity.class);
+            intent.putExtra(DetailActivity.DETAIL_URL, eventGoDetail.url);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 }

@@ -1,6 +1,7 @@
 package com.qunar.ironman.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,12 @@ import com.qunar.ironman.AppController;
 import com.qunar.ironman.R;
 import com.qunar.ironman.bean.ImageSrc;
 import com.qunar.ironman.bean.News;
+import com.qunar.ironman.event.EventGoDetail;
 
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
+
 
 /**
  * Created by ironmanli on 15-4-16.
@@ -27,6 +32,7 @@ public class AdapterMainPager extends BaseAdapter {
     private List<News> data;
     private LayoutInflater inflater;
     private ImageLoader loader;
+    private Context context;
 
     private int TYPE_COUNT = 4;
     private int TYPE_IMAGES = 0;
@@ -39,6 +45,7 @@ public class AdapterMainPager extends BaseAdapter {
         this.data = data;
         this.inflater = LayoutInflater.from(context);
         this.loader = loader;
+        this.context = context;
     }
 
     @Override
@@ -129,7 +136,6 @@ public class AdapterMainPager extends BaseAdapter {
             holderLeft.textComments.setText("跟帖" + news.getReplyCount());
             holderLeft.image.setImageUrl(news.getImgSrc(), AppController.getInstance().getImageLoader());
 
-            Log.e(TAG, "position :"+position +"\n"+news.getTitle());
         } else if (getItemViewType(position) == TYPE_IMAGE_THREE) {
             ViewImageThree holderThree;
             if (convertView == null) {
@@ -153,6 +159,12 @@ public class AdapterMainPager extends BaseAdapter {
             holderThree.image2.setImageUrl(imgExtra.get(0).getImgsrc(), AppController.getInstance().getImageLoader());
             holderThree.image3.setImageUrl(imgExtra.get(1).getImgsrc(), AppController.getInstance().getImageLoader());
         }
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventBus.getDefault().post(new EventGoDetail(news.getUrl_3w()));
+            }
+        });
 
         return convertView;
     }
