@@ -1,25 +1,38 @@
 package com.me.client.framework.view;
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
-import com.me.client.R;
+import com.ironman.client.view.BaseActivity;
+import com.ironman.client.view.bean.Fragments;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class ActivityMain extends ActionBarActivity {
+public class ActivityMain extends BaseActivity {
+
+    private ArrayList<Fragments> fragmentses;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
+    protected void initDatas() {
+        fragmentses = new ArrayList<>();
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab1"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab2"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab3"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab4"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+        fragmentses.add(new Fragments(MainFragment.newInstance(), "tab5"));
+
     }
 
-    private void initView(){
-        //test if ssh is ok
-
+    @Override
+    protected List<Fragments> getFragments() {
+        return fragmentses;
     }
-
-
-
 }

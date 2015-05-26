@@ -9,4 +9,7 @@
     <color name="shadow">#ffffc128</color>
     <color name="menu_bg">#ff4fff27</color>
 
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
