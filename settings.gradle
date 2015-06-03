@@ -1,1 +1,1 @@
-include ':app', ':clientbase', ':trineaandroidcommon', ':PagerSlidingTabStrip', ':news-client', ':library', ':volley'
+include ':app', ':clientbase', ':trineaandroidcommon', ':PagerSlidingTabStrip', ':news-client', ':library', ':volley', ':libaray-new', ':light'

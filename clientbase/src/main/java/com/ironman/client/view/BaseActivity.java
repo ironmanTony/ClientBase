@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import com.ironman.client.R;
 import com.ironman.client.view.adapter.MyPagerAdapter;
@@ -25,10 +27,13 @@ import java.util.List;
  */
 public abstract class BaseActivity extends FragmentActivity {
 
+    public static final String TAG = BaseActivity.class.getName();
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout drawerLayout;
     private MyPagerAdapter adapter;
     private ArrayList<Fragments> fragments;
+    private boolean isLeftDrawerNull = true;
+    private boolean isRightDrawerNull = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +41,51 @@ public abstract class BaseActivity extends FragmentActivity {
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_base);
         initActionBar();
+        if(!initLeftDrawer()){
+            //TODO lock left drawer
+        }
+        if(!initRightDrawer()){
+            //TODO lock right drawer
+        }
         initDatas();
         initPagerSlidingTabStrip();
     }
 
     protected abstract void initDatas();
+
+    private boolean initLeftDrawer(){
+        View view = getLeftDrawer();
+        if(view != null){
+            isLeftDrawerNull = false;
+            FrameLayout leftContainer = (FrameLayout) findViewById(R.id.left_drawer);
+            leftContainer.addView(view);
+            return  true;
+        }
+        return false;
+    }
+
+    public void hideLeftDrawer(){
+        if(!isLeftDrawerNull){
+            //TODO hide left drawer
+        }
+    }
+
+    public void hideRightDrawer(){
+        if(!isRightDrawerNull){
+            //TODO hide left drawer
+        }
+    }
+
+    private boolean initRightDrawer(){
+        View view = getRightDrawer();
+        if(view != null){
+            isRightDrawerNull = false;
+            FrameLayout rightContainer = (FrameLayout) findViewById(R.id.right_drawer);
+            rightContainer.addView(view);
+            return  true;
+        }
+        return false;
+    }
 
     private void initActionBar() {
         ActionBar actionBar = getActionBar();
@@ -143,6 +188,9 @@ public abstract class BaseActivity extends FragmentActivity {
         }
         adapter.notifyDataSetChanged();
     }
+
+    protected abstract View getLeftDrawer();
+    protected abstract View getRightDrawer();
 
 
 }

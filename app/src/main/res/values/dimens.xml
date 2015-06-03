@@ -5,4 +5,13 @@
     <dimen name="drawer_width">240dp</dimen>
     <dimen name="shadow_width">160dp</dimen>
     <dimen name="slidingmenu_offset">50dp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_middle">16dp</dimen>
+    <dimen name="padding_big">32dp</dimen>
+
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_middle">16dp</dimen>
+    <dimen name="margin_big">32dp</dimen>
+
 </resources>

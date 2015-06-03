@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="114dp">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/list_item_left_image"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:padding="@dimen/padding_small"
+        android:src="@drawable/nobook"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small"
+        android:orientation="vertical"
+        android:layout_weight="2.5">
+
+        <TextView
+            android:id="@+id/list_item_left_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:textColor="@android:color/black"
+            android:textSize="16dp"
+            android:text="xxx"/>
+
+        <TextView
+            android:id="@+id/search_book_bookid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="@android:color/darker_gray"/>
+
+
+        <TextView
+            android:id="@+id/search_book_canborrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxx"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/search_book_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxx"
+            android:textColor="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
