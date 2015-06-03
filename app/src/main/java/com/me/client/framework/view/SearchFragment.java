@@ -1,17 +1,20 @@
 package com.me.client.framework.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.ironman.client.view.BaseActivity;
 import com.me.client.R;
 import com.me.client.framework.App;
 import com.me.client.framework.bean.Book;
@@ -30,9 +33,6 @@ import java.util.List;
 public class SearchFragment extends Fragment {
 
     private String requestTag = SearchFragment.class.getName();
-    private String requestIsbnTag = SearchFragment.class.getName() + "isbn";
-    private String requestPlaceTag = SearchFragment.class.getName() + "place";
-    private String requestDetailTag = SearchFragment.class.getName() + "detail";
     private int placeNum = 0;
     private int isbnNum = 0;
     public static final int TOTAL_BOOK = 20;
@@ -64,6 +64,7 @@ public class SearchFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
         requestTag = this.getClass().getName() + System.currentTimeMillis();
         initView(view);
+        ((BaseActivity)getActivity()).isHideTabs(true);
         return view;
     }
 
@@ -73,12 +74,21 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String key = ed.getText().toString().trim();
+                requestTag += System.currentTimeMillis();
                 getData(key);
             }
         });
         adapter = new SearchAdapter(data, getActivity().getApplicationContext());
         ListView listView = (ListView) view.findViewById(R.id.search_lv_result);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra(DetailActivity.BOOK_DETAIL, data.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -109,11 +119,13 @@ public class SearchFragment extends Fragment {
                 @Override
                 public void onResponse(Book response) {
                     placeNum++;
-                    if (placeNum >= TOTAL_BOOK) {
-                        //TODO adapter.notifyDataSetChanged
+                    if (placeNum %2 == 0) {
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        placeNum = 1;
                     }
                 }
-            }), requestPlaceTag);
+            }), requestTag);
         }
     }
 
@@ -122,20 +134,18 @@ public class SearchFragment extends Fragment {
             App.getInstance().addToRequestQueue(new IsbnRequest(response.get(i), new Response.Listener<Book>() {
                 @Override
                 public void onResponse(Book response) {
-                    //TODO image request to reqeustQueue
                     App.getInstance().addToRequestQueue(new DetailRequest(response, new Response.Listener<Book>() {
                         @Override
                         public void onResponse(Book response) {
-                            //TODO add imagerequest to request
-                            adapter.notifyDataSetChanged();
-//                            isbnNum++;
-//                            if (isbnNum >= TOTAL_BOOK) {
-//                                //TODO adapter.notifyDataSetChanged
-//                            }
+                            isbnNum++;
+                            if (isbnNum >= TOTAL_BOOK) {
+                                // adapter.notifyDataSetChanged
+                                adapter.notifyDataSetChanged();
+                            }
                         }
-                    }), requestDetailTag);
+                    }), requestTag);
                 }
-            }), requestIsbnTag);
+            }), requestTag);
         }
     }
 
@@ -153,9 +163,9 @@ public class SearchFragment extends Fragment {
         return "";
     }
 
-
     @Override
     public void onStop() {
         super.onStop();
+        App.getInstance().cancelPendingRequests(requestTag);
     }
 }

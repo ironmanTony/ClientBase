@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:weightSum="2"
+    android:gravity="center_horizontal"
+    android:layout_height="55dp">
+
+    <TextView
+        android:id="@+id/left_drawer_item_tv"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/blue"
+        android:paddingLeft="@dimen/padding_middle"
+        android:textSize="18dp"
+        android:text="xxx"
+        />
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:scaleType="center"
+        android:src="@drawable/ic_navigate_next_black_48dp"
+        />
+
+</LinearLayout>

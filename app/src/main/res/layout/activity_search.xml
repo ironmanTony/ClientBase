@@ -1,29 +1,84 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/padding_middle"
     tools:context="com.me.client.framework.view.DetailActivity">
 
-    <EditText
-        android:id="@+id/search_et"
-        android:layout_width="wrap_content"
+   <TextView
+       android:id="@+id/detail_book_title"
+       android:layout_width="fill_parent"
+       android:textSize="18dp"
+       android:layout_height="wrap_content" />
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/detail_book_img"
+        android:layout_width="96dp"
+        android:layout_height="114dp"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/search_btn_search"
-        android:layout_height="wrap_content" />
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_below="@id/detail_book_title"
+        />
 
-    <Button
-        android:id="@+id/search_btn_search"
+    <LinearLayout
+        android:id="@+id/detail_book_ll"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/detail_book_img"
+        android:layout_alignTop="@+id/detail_book_img"
+        android:layout_alignBottom="@+id/detail_book_img"
         android:layout_alignParentRight="true"
-        android:text="search"
-        android:layout_height="wrap_content" />
+        android:layout_marginLeft="@dimen/margin_small"
+        >
 
-    <ListView
-        android:id="@+id/search_lv_result"
+        <TextView
+            android:id="@+id/detail_book_id"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="xxx"/>
+
+        <TextView
+            android:id="@+id/detail_book_author"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="xxx"/>
+
+        <TextView
+            android:id="@+id/detail_book_publisher"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="xxx"/>
+        <TextView
+            android:id="@+id/detail_book_place"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="xxx"/>
+
+        <TextView
+            android:id="@+id/detail_book_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="xxx"/>
+
+    </LinearLayout>
+
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/search_et"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/margin_small"
-        />
+        android:layout_below="@+id/detail_book_ll"
+        >
+
+        <TextView
+            android:id="@+id/detail_book_summary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
+            />
+
+    </ScrollView>
+
+
+
+
 
 </RelativeLayout>

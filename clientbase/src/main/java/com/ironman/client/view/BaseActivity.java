@@ -34,6 +34,7 @@ public abstract class BaseActivity extends FragmentActivity {
     private ArrayList<Fragments> fragments;
     private boolean isLeftDrawerNull = true;
     private boolean isRightDrawerNull = true;
+    private PagerSlidingTabStrip tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,11 +167,21 @@ public abstract class BaseActivity extends FragmentActivity {
         pager.setAdapter(adapter);
 
         // Bind the tabs to the ViewPager
-        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
         tabs.setIndicatorColor(getResources().getColor(R.color.bg_red));
         tabs.setIndicatorHeight(5);
         tabs.setTextColorResource(R.color.bg_red);
+    }
+
+    public void isHideTabs(boolean isHide){
+        if(tabs!=null){
+            if(isHide){
+                tabs.setVisibility(View.GONE);
+            }else{
+                tabs.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 

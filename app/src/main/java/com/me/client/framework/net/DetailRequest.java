@@ -45,6 +45,7 @@ public class DetailRequest extends JsonRequest<Book> {
             JSONObject jsonObject = new JSONObject(jsonString);
             book.imgSrc = jsonObject.getString("image");
             book.detailSrc = jsonObject.getString("link");
+            book.summary = jsonObject.getString("summary");
             Log.d("image", book.imgSrc);
             Log.d("link", book.detailSrc);
         } catch (JSONException e) {
